@@ -1,8 +1,8 @@
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
-import MovieThumbnail from "../components/MovieThumbnail";
-import { appTitle } from "../globals/globalVariables";
-import { useSelector } from "react-redux";
+import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import MovieThumbnail from '../components/MovieThumbnail';
+import { appTitle } from '../globals/globalVariables';
+import { useSelector } from 'react-redux';
 
 function PageWatchlist() {
   const watchlistItems = useSelector((state) => state.watchlist.items);
@@ -20,7 +20,7 @@ function PageWatchlist() {
           <div className="border-container">
             <img
               className="popcorn-img"
-              src="../../public/assets/images/CuteCat.png"
+              src="/assets/images/CuteCat.png"
               alt="Cute Popcorn"
             />
             <div className="empty-description">

@@ -1,14 +1,14 @@
-import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import "../../public/assets/styles/main-nav.css";
+import { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import '../../public/assets/styles/main-nav.css';
 
 const Nav = () => {
   const [isSideBarActive, setIsSideBarActive] = useState(false);
   const [isNavActive, setIsNavActive] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
   const [movies, setMovies] = useState([]);
 
   const searchSection = (
@@ -21,10 +21,7 @@ const Nav = () => {
           placeholder="Search movie titles"
         />
         <NavLink to={`/search?query=${encodeURIComponent(searchQuery)}`}>
-          <FontAwesomeIcon
-            icon={faMagnifyingGlass}
-            className="search-icon"
-          />
+          <FontAwesomeIcon icon={faMagnifyingGlass} className="search-icon" />
         </NavLink>
       </div>
     </div>
@@ -32,21 +29,21 @@ const Nav = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const mainNav = document.querySelector(".main-nav");
+      const mainNav = document.querySelector('.main-nav');
       setIsNavActive(window.scrollY >= 10);
       if (mainNav) {
         if (window.scrollY >= 10) {
-          mainNav.classList.add("active");
+          mainNav.classList.add('active');
         } else {
-          mainNav.classList.remove("active");
+          mainNav.classList.remove('active');
         }
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -55,12 +52,12 @@ const Nav = () => {
   }
 
   return (
-    <div className={`main-nav ${isNavActive ? "active" : ""}`}>
+    <div className={`main-nav ${isNavActive ? 'active' : ''}`}>
       <div className="nav-container">
         <div className="icons">
           {/* <div className="overlay" onClick={toggleNav}></div> */}
           <NavLink to="/" onClick={toggleNav}>
-            <img src="../../assets/images/MovieLogo.png" alt="Movie Logo" />
+            <img src="/assets/images/MovieLogo.png" alt="Movie Logo" />
           </NavLink>
           {searchSection}
         </div>
@@ -68,9 +65,9 @@ const Nav = () => {
           <button className="menu-open-btn" onClick={toggleNav}>
             <FontAwesomeIcon icon={faBars} />
           </button>
-          <nav className={`navbar ${isSideBarActive ? "active" : ""}`}>
+          <nav className={`navbar ${isSideBarActive ? 'active' : ''}`}>
             <div className="navbar-top">
-              <img src="../../assets/images/MovieLogo.png" alt="Movie Logo" />
+              <img src="/assets/images/MovieLogo.png" alt="Movie Logo" />
               <button className="menu-close-btn" onClick={toggleNav}>
                 <FontAwesomeIcon icon={faXmark} />
               </button>

@@ -1,4 +1,5 @@
-env.ts
+
+*.env
 
 # Logs
 logs
